@@ -3,6 +3,7 @@ package mvp.cn.common.base;
 import android.support.v4.app.FragmentActivity;
 
 import butterknife.ButterKnife;
+import mvp.cn.common.application.QuickApplication;
 
 /**
  *

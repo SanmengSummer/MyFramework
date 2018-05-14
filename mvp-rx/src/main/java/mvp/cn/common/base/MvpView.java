@@ -26,9 +26,4 @@ public interface MvpView {
     void showToast(String info);
 
     void showToastLong(String info);
-
-    void showProgressDialog();
-
-    void showProgressDialog(String info);
-    void dismissProgressDialog();
 }

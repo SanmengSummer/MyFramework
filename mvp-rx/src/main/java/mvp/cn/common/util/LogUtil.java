@@ -5,7 +5,7 @@ import android.util.Log;
 
 public class LogUtil {
     private static final boolean isLog = true;
-    public static final String DEFAULT_TAG = "callBack";
+    public static final String DEFAULT_TAG = "LogUtil";
 
     public static void log(String tag, int level, String msg, Throwable tr) {
         if (isLog) {

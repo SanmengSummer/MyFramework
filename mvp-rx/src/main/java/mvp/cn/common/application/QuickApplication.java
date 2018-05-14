@@ -1,4 +1,4 @@
-package mvp.cn.common.base;
+package mvp.cn.common.application;
 
 import android.app.Application;
 import android.content.Context;

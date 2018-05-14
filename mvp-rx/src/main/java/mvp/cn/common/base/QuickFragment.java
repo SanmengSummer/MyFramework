@@ -21,6 +21,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import butterknife.ButterKnife;
+import mvp.cn.common.application.QuickApplication;
 
 public abstract class QuickFragment extends Fragment {
 
@@ -34,14 +35,6 @@ public abstract class QuickFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        QuickApplication.getInstance().getRefWatcher().watch(this);
+        QuickApplication.getInstance().getRefWatcher(this.getContext()).watch(this);
     }
-
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//         
-//        ButterKnife.unbind(this);
-//    }
-
 }

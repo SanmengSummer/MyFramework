@@ -18,7 +18,7 @@ import android.util.Log;
 import java.util.List;
 
 public class NetUtil {
-    private static final String TAG = "MobileUtils";
+    private static final String TAG = "NetUtil";
 
     /**
      * 判断网络连接是否已开

@@ -23,6 +23,7 @@ import android.view.View;
 
 import com.squareup.leakcanary.RefWatcher;
 
+import mvp.cn.common.application.QuickApplication;
 import mvp.cn.common.delegate.FragmentMvpDelegate;
 import mvp.cn.common.delegate.FragmentMvpDelegateImpl;
 import mvp.cn.common.delegate.MvpDelegateCallback;
