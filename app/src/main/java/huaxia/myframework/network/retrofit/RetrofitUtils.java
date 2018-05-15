@@ -19,7 +19,7 @@ import rx.schedulers.Schedulers;
 
 
 /**
- * Created by summer on 2017/5/12.
+ * Created by Summer on 2017/5/12.
  */
 
 public class RetrofitUtils implements BaseConfig {

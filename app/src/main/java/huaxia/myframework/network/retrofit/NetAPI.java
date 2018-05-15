@@ -2,14 +2,14 @@ package huaxia.myframework.network.retrofit;
 
 import java.util.Map;
 
-import huaxia.myframework.SystemParamModel;
+import huaxia.myframework.activity.SystemParamModel;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import rx.Observable;
 
 /**
- * Created by summer on 2017/5/12.
+ * Created by Summer on 2017/5/12.
  */
 
 public interface NetAPI {
