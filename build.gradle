@@ -10,6 +10,7 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5' //自动化maven打包插件
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3' //自动上传至Bintray平台插件
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
     }
 }
 

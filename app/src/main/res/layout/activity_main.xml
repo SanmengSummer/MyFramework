@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="huaxia.myframework.activity.MainActivity">
+    tools:context="summer.myframework.activity.MainActivity">
 
     <Button
+        android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="b"
         android:text="Hello World!"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"

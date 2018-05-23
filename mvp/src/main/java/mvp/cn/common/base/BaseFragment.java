@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import mvp.cn.common.application.SoftApplication;
 import mvp.cn.common.util.LogUtil;
@@ -17,13 +16,9 @@ import mvp.cn.rx.MvpRxPresenter;
  */
 public abstract class BaseFragment<M extends MvpModel, V extends MvpView, P extends MvpRxPresenter<M, V>>
         extends MvpRxFragment<M,V,P> {
-
-
     protected SoftApplication softApplication;
     private View inflate;
     private int contentViewRes = -1;
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,14 +58,5 @@ public abstract class BaseFragment<M extends MvpModel, V extends MvpView, P exte
 
     public void setContentView(int resId) {
         this.contentViewRes = resId;
-    }
-
-    @Override
-    public void showToast(String info) {
-        Toast.makeText(getActivity(), info, Toast.LENGTH_SHORT).show();
-    }
-    @Override
-    public void showToastLong(String info) {
-        Toast.makeText(getActivity(), info, Toast.LENGTH_LONG).show();
     }
 }

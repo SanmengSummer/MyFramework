@@ -9,7 +9,5 @@ package mvp.cn.common.base;
  *
  */
 public interface MvpView {
-    void showToast(String info);
 
-    void showToastLong(String info);
 }

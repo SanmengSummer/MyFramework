@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -33,7 +32,6 @@ public abstract class BaseActivity<M extends MvpModel, V extends MvpView, P exte
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentLayout();
         initView();
-
     }
 
     /**
@@ -139,47 +137,6 @@ public abstract class BaseActivity<M extends MvpModel, V extends MvpView, P exte
         } catch (Exception e) {
 
         }
-    }
-
-    /**
-     * 短时间显示Toast
-     *
-     * @param info 显示的内容
-     */
-    public void showToast(String info) {
-        Toast.makeText(this, info, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * 长时间显示Toast
-     *
-     * @param info 显示的内容
-     */
-    public void showToastLong(String info) {
-        Toast.makeText(this, info, Toast.LENGTH_LONG).show();
-    }
-
-    /**
-     * 短时间显示Toast
-     * <p>
-     * 显示的内容
-     */
-    public void showToast(int resId) {
-        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * 长时间显示Toast
-     * <p>
-     * 显示的内容
-     */
-    public void showToastLong(int resId) {
-        Toast.makeText(this, resId, Toast.LENGTH_LONG).show();
-    }
-
-
-    public String getResStrById(int resId) {
-        return getResources().getString(resId);
     }
 
 
