@@ -5,6 +5,7 @@ First,this is a simple Android framework of Mvp. It is based on a Mvp framework 
 
 可compile 'summer:mvp-framework:1.1.1'；
 也可下载Library（mvp）直接依赖，推荐下载依赖，方便改动。
+
 0.创建自己的Application类extend SoftApplication；
 
     0.1 添加LeakCanary的内存泄漏的检查，fragment里需另加QuickApplication.getRefWatcher().watch();
@@ -32,9 +33,7 @@ public class HomeFragment extends BaseFragment<HomeFragmentModel, HomeFragmentVi
 annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
 6.另外本框架还有一些Util可供使用：
-DateUtil，DensityUtil，LogUtil，
-Md5Util，NetUtil，SDcardUtil，
-StringUtil，ToastUtil，VerifyCheck；
+DateUtil，DensityUtil，LogUtil，NetUtil，StringUtil，ToastUtil，VerifyCheck；
 具体使用方法可以可以直接查看相关类中的方法介绍。
 
 优点：这是个mvp的框架，所以有效的对各类层进行解耦，符合高内聚低耦合的编程思想；使用简单，易理解；
