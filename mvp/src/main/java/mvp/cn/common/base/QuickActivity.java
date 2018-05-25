@@ -26,6 +26,5 @@ public class QuickActivity extends FragmentActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        QuickApplication.getInstance().getRefWatcher(this).watch(this);
     }
 }

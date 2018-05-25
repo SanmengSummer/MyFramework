@@ -24,7 +24,6 @@ public class HomeFragment extends BaseFragment<HomeFragmentModel, HomeFragmentVi
 
     @Override
     public void initView(View v) {
-        QuickApplication.getRefWatcher(QuickApplication.getInstance()).watch(this);
     }
 
     @Override

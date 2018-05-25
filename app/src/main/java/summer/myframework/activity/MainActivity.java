@@ -83,7 +83,7 @@ public class MainActivity extends BaseActivity<MainModel, MainView, MainPresente
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn:
-                ToastUtil.showToast(this, "mam" + isRed);
+                ToastUtil.showToast( "mam" + isRed);
                 getData();
                 break;
             case R.id.fl:

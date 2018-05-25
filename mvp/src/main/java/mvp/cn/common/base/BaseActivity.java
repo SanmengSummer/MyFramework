@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import mvp.cn.common.application.SoftApplication;
+import mvp.cn.common.application.BaseApplication;
 import mvp.cn.common.util.LogUtil;
 import mvp.cn.rx.MvpModel;
 import mvp.cn.rx.MvpRxActivity;
@@ -20,15 +20,15 @@ import mvp.cn.rx.MvpRxPresenter;
 
 
 public abstract class BaseActivity<M extends MvpModel, V extends MvpView, P extends MvpRxPresenter<M, V>> extends MvpRxActivity<M, V, P> {
-    protected SoftApplication softApplication;
+    protected BaseApplication baseApplication;
     protected Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         resources = getResources();
-        softApplication = (SoftApplication) getApplicationContext();
-        softApplication.unDestroyActivityList.add(this);
+        baseApplication = (BaseApplication) getApplicationContext();
+        baseApplication.unDestroyActivityList.add(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentLayout();
         initView();
@@ -139,11 +139,10 @@ public abstract class BaseActivity<M extends MvpModel, V extends MvpView, P exte
         }
     }
 
-
     @Override
     public void onDestroy() {
         super.onDestroy();
-        SoftApplication.unDestroyActivityList.remove(this);
+        BaseApplication.unDestroyActivityList.remove(this);
     }
 
     /**
@@ -151,25 +150,25 @@ public abstract class BaseActivity<M extends MvpModel, V extends MvpView, P exte
      */
     public boolean finishActivityAndAboveIt(String activityName) {
 
-        synchronized (SoftApplication.class) {
+        synchronized (BaseApplication.class) {
             if (activityName == null) {
                 return false;
             }
             boolean isExist = false;
-            for (Activity act : SoftApplication.unDestroyActivityList) {
+            for (Activity act : BaseApplication.unDestroyActivityList) {
                 if (act.getClass().getName().equals(activityName)) {
                     isExist = true;
                 }
             }
             if (!isExist) {
-                LogUtil.log("栈中没有这个Activiy:" + activityName);
+                LogUtil.i("栈中没有这个Activiy:" + activityName);
                 return false;
             }
             boolean isOk = false;
             while (!isOk) {
-                String prepareFinishActName = SoftApplication.unDestroyActivityList.get(SoftApplication.unDestroyActivityList.size() - 1).getClass().getName();
-                SoftApplication.unDestroyActivityList.remove(SoftApplication.unDestroyActivityList.size() - 1).finish();
-                LogUtil.log("栈中activity数量:" + SoftApplication.unDestroyActivityList.size());
+                String prepareFinishActName = BaseApplication.unDestroyActivityList.get(BaseApplication.unDestroyActivityList.size() - 1).getClass().getName();
+                BaseApplication.unDestroyActivityList.remove(BaseApplication.unDestroyActivityList.size() - 1).finish();
+                LogUtil.i("栈中activity数量:" + BaseApplication.unDestroyActivityList.size());
                 if (activityName.equals(prepareFinishActName)) {
                     isOk = true;
                 }

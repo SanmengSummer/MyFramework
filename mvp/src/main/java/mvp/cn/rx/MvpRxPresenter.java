@@ -37,7 +37,7 @@ public abstract class MvpRxPresenter<M extends MvpModel, V extends MvpView>
      * @param observable The observable to subscribe
      */
     public void getNetWork(Observable observable, Subscriber sb) {
-        unsubscribe();
+        unSubscribe();
         subscriber = sb;
         observable = applyScheduler(observable);
         observable.subscribe(subscriber);
@@ -54,9 +54,9 @@ public abstract class MvpRxPresenter<M extends MvpModel, V extends MvpView>
 
 
     /**
-     * Unsubscribes the subscriber and set it to null
+     * UnSubscribes the subscriber and set it to null
      */
-    protected void unsubscribe() {
+    protected void unSubscribe() {
         if (subscriber != null && !subscriber.isUnsubscribed()) {
             subscriber.unsubscribe();
         }
@@ -68,7 +68,7 @@ public abstract class MvpRxPresenter<M extends MvpModel, V extends MvpView>
     public void detachView(boolean retainInstance) {
         super.detachView(retainInstance);
         if (!retainInstance) {
-            unsubscribe();
+            unSubscribe();
         }
     }
 }

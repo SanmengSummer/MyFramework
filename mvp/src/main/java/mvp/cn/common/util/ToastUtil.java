@@ -1,57 +1,72 @@
+
 package mvp.cn.common.util;
 
 import android.content.Context;
 import android.widget.Toast;
 
 /**
- * Created by Summer on 2016/6/27 0027.
+ * Toast工具类，解决多个Toast同时出现的问题
+ *
+ * Summer
+ * @date 16/4/9.
  */
 public class ToastUtil {
-    private static String oldMsg;
-    protected static Toast toast   = null;
-    private static long oneTime=0;
-    private static long twoTime=0;
 
-    public static void showToast(Context context, String s){
-        if(toast==null){
-            toast = Toast.makeText(context, s, Toast.LENGTH_SHORT);
-            toast.show();
-            oneTime= System.currentTimeMillis();
-        }else{
-            twoTime= System.currentTimeMillis();
-            if(s.equals(oldMsg)){
-                if(twoTime-oneTime> Toast.LENGTH_SHORT){
-                    toast.show();
-                }
-            }else{
-                oldMsg = s;
-                toast.setText(s);
-                toast.show();
-            }
-        }
-        oneTime=twoTime;
-    }
-    public static void showToastLong(Context context, String s){
-        if(toast==null){
-            toast = Toast.makeText(context, s, Toast.LENGTH_LONG);
-            toast.show();
-            oneTime= System.currentTimeMillis();
-        }else{
-            twoTime= System.currentTimeMillis();
-            if(s.equals(oldMsg)){
-                if(twoTime-oneTime> Toast.LENGTH_LONG){
-                    toast.show();
-                }
-            }else{
-                oldMsg = s;
-                toast.setText(s);
-                toast.show();
-            }
-        }
-        oneTime=twoTime;
+    private static Toast mToast;
+    private static Context context = AppUtil.getAppContext();//如果报错，就加个Application的Context
+
+    /********************** 非连续弹出的Toast ***********************/
+    public static void showSingleToast(int resId) { //R.string.**
+        getSingleToast(resId, Toast.LENGTH_SHORT).show();
     }
 
-    public static void showToast(Context context, int resId){
-        showToast(context, context.getString(resId));
+    public static void showSingleToast(String text) {
+        getSingleToast(text, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void showSingleLongToast(int resId) {
+        getSingleToast(resId, Toast.LENGTH_LONG).show();
+    }
+
+    public static void showSingleLongToast(String text) {
+        getSingleToast(text, Toast.LENGTH_LONG).show();
+    }
+
+    /*********************** 连续弹出的Toast ************************/
+    public static void showToast(int resId) {
+        getToast(resId, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void showToast(String text) {
+        getToast(text, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void showLongToast(int resId) {
+        getToast(resId, Toast.LENGTH_LONG).show();
+    }
+
+    public static void showLongToast(String text) {
+        getToast(text, Toast.LENGTH_LONG).show();
+    }
+
+    public static Toast getSingleToast(int resId, int duration) { // 连续调用不会连续弹出，只是替换文本
+        return getSingleToast(context.getResources().getText(resId).toString(), duration);
+    }
+
+    public static Toast getSingleToast(String text, int duration) {
+        if (mToast == null) {
+            mToast = Toast.makeText(context, text, duration);
+        } else {
+            mToast.setText(text);
+        }
+        return mToast;
+    }
+
+    public static Toast getToast(int resId, int duration) { // 连续调用会连续弹出
+        return getToast(context.getResources().getText(resId).toString(), duration);
+    }
+
+    public static Toast getToast(String text, int duration) {
+        return Toast.makeText(context, text, duration);
     }
 }

@@ -401,7 +401,6 @@ public final class DateUtil {
 			}
 		}, hour, minute, true);
 
-		LogUtil.log("sdgdfg");
 		timePicker.show();
 	}
 

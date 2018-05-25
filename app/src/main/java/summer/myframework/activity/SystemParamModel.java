@@ -1,15 +1,18 @@
 package summer.myframework.activity;
 
-import summer.myframework.network.retrofit.BaseModel;
+import summer.myframework.network.retrofit.basenet.BaseModel;
 
 public class SystemParamModel extends BaseModel {
 
-    /**
-     * playServer : http://lecloud.educdn.huan.tv/mediadns/ts/
-     * mediaServer : http://192.168.80.112:8777/
-     * rootId : 16
-     */
-    public Info info;
+    private Info info;
+
+    public Info getInfo() {
+        return info;
+    }
+
+    public void setInfo(Info info) {
+        this.info = info;
+    }
 
     @Override
     public String toString() {
@@ -18,7 +21,12 @@ public class SystemParamModel extends BaseModel {
                 '}';
     }
 
-    private class Info {
+    public class Info {
+        /**
+         * playServer : http://lecloud.educdn.huan.tv/mediadns/ts/
+         * mediaServer : http://192.168.80.112:8777/
+         * rootId : 16
+         */
         private String playServer;
         private String mediaServer;
         private String rootId;

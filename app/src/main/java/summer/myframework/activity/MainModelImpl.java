@@ -12,7 +12,7 @@ import rx.Observable;
 public class MainModelImpl implements MainModel {
     @Override
     public Observable getData() {
-        LogUtil.log("MainModel请求数据");
+        LogUtil.i("MainModel请求数据");
         Observable observer = RetrofitUtils.getInstance().queryParamInfo();
         return observer ;
     }

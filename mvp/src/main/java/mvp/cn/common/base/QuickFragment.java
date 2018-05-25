@@ -19,6 +19,5 @@ public abstract class QuickFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        QuickApplication.getInstance().getRefWatcher(this.getContext()).watch(this);
     }
 }

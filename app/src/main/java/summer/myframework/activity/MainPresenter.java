@@ -14,23 +14,23 @@ import rx.Subscriber;
 
 public class MainPresenter extends MvpRxPresenter<MainModel, MainView> {
     public void getData() {
-        LogUtil.log("MainPresenter发出请求");
+        LogUtil.i("MainPresenter发出请求");
         Observable login = getModel().getData();//获取MainModel
         getNetWork(login, new Subscriber<SystemParamModel>() {
             @Override
             public void onCompleted() {
-                LogUtil.logError("onCompleted");
+                LogUtil.e("onCompleted");
             }
 
             @Override
             public void onError(Throwable e) {
-                LogUtil.logError(e+"");
+                LogUtil.e(e + "");
             }
 
             @Override
             public void onNext(SystemParamModel loginBean) {
                 getView().setBackgroundBlack();//获取MainView
-                LogUtil.logError(loginBean+"");
+                LogUtil.e(loginBean + "");
             }
         });
     }
