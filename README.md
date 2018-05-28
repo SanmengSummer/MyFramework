@@ -3,7 +3,7 @@ First,this is a simple Android framework of Mvp. It is based on a Mvp framework 
 #使用说明：（mvp）
 本框架是Mvp+Retrofit2+RxJava2的简单框架，里面的逻辑很简单，有兴趣的可以简单看看。
 
-可compile 'summer:mvp-framework:1.1.1-b0'；
+可compile 'summer:mvp-framework:1.1.1'；
 也可下载Library（mvp）直接依赖，推荐下载依赖，方便改动。
 
 0.创建自己的Application类extend SoftApplication；
